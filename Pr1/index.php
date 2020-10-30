@@ -22,7 +22,7 @@
  		mysqli_select_db($conn, 'world');
  
  		# (2.1) creem el string de la consulta (query)
- 		$consulta = "SELECT * FROM city;";
+ 		$consulta = "SELECT * FROM country;";
  
  		# (2.2) enviem la query al SGBD per obtenir el resultat
  		$resultat = mysqli_query($conn, $consulta);
@@ -50,12 +50,13 @@
   
  			# (3.3) obrim fila de la taula HTML amb <tr>
  			
+ 			$CountryCode = $registre['Code'];
  
  			# (3.4) cadascuna de les columnes ha d'anar precedida d'un <td>
  			#	després concatenar el contingut del camp del registre
  			#	i tancar amb un </td>
  			#echo "\t\t<td>".$registre["Name"]."</td>\n";
- 			echo "<option>".$registre['Name']."</td>\n"."</option>";
+ 			echo "<option value='$CountryCode'>".$registre['Name']."</td>\n"."</option>";
  			#echo "\t\t<td>".$registre["District"]."</td>\n";
  			#echo "\t\t<td>".$registre['Population']."</td>\n";
  

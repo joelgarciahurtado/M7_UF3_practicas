@@ -22,9 +22,9 @@
  		mysqli_select_db($conn, 'world');
  
  		# (2.1) creem el string de la consulta (query)
- 		$consulta = "SELECT * FROM id="dades"";
+ 		$consulta = "SELECT * FROM city WHERE id='dades'";
 
- 		echo $_POST["dades"];
+ 		$code = $_POST['pais'];
  
  		# (2.2) enviem la query al SGBD per obtenir el resultat
  		$resultat = mysqli_query($conn, $consulta);
@@ -35,5 +35,8 @@
      			$message  = 'Consulta invàlida: ' . mysqli_error() . "\n";
      			$message .= 'Consulta realitzada: ' . $consulta;
      			die($message);
+ 		} else {
+ 			$consulta2 = "SELECT name FROM city WHERE CountryCode =$code";
+ 			$resultat2 = mysqli_query($conn, $consulta2);
  		}
  	?>
